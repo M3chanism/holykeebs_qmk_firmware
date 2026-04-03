@@ -38,7 +38,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 // #define AUTO_MOUSE_DEFAULT_LAYER 2
 
-#define KEYBALL_SCROLLSNAP_ENABLE 0 // 0 allows horizontal scrolling
+#define KEYBALL_SCROLLSNAP_ENABLE     1 // enable snap-to-axis (prevents diagonal jitter)
+#define KEYBALL_SCROLLSNAP_MODE       0  // 0 = vertical priority, 1 = horizontal priority
+#define KEYBALL_SCROLLSNAP_INTERVAL   100  // ms between snap checks; lower = more responsive but potentially jitterier
 
 #define DYNAMIC_KEYMAP_LAYER_COUNT 8
 
