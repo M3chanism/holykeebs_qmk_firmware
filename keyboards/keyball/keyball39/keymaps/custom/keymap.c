@@ -20,6 +20,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+void keyball_on_apply_motion_to_mouse_scroll(report_mouse_t *r, report_mouse_t *o, bool is_left) {
+    static int16_t acc_x = 0;
+    static int16_t acc_y = 0;
+    acc_x += r->x;
+    acc_y += r->y;
+    r->x = 0;
+    r->y = 0;
+
+    const int16_t scroll_speed_div = 1 << (keyball_get_scroll_div() - 1);
+
+    o->h = acc_x / scroll_speed_div;
+    acc_x -= o->h * scroll_speed_div;
+
+    o->v = acc_y / scroll_speed_div;
+    acc_y -= o->v * scroll_speed_div;
+
+    if (is_left) {
+        o->h = -o->h;
+        o->v = -o->v;
+    }
+}
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
@@ -38,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [2] = LAYOUT_universal(
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                             KC_NO, SCRL_DVI, SCRL_DVD, KC_NO, KC_NO,
     MOD_LALT, MOD_LCTL, MOD_LGUI , MOD_LSFT , KC_NO ,                              KC_NO, KC_RSFT, KC_RGUI, KC_RCTL, KC_RALT,
     KC_NO, KC_NO, KC_TRNS, SCRL_MO, KC_NO,                                         KC_NO, SCRL_MO, KC_TRNS, KC_NO, KC_NO,
     KC_NO,KC_NO,KC_NO,           KC_MS_BTN2, KC_MS_BTN1, KC_MS_BTN3,       KC_MS_BTN3, KC_MS_BTN1,    KC_NO,KC_NO,KC_NO,     KC_NO

@@ -42,6 +42,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KEYBALL_SCROLLSNAP_MODE       0  // 0 = vertical priority, 1 = horizontal priority
 #define KEYBALL_SCROLLSNAP_INTERVAL   100  // ms between snap checks; lower = more responsive but potentially jitterier
 
+// #define HK_MAIN_DEFAULT_POINTER_SCROLL_BUFFER_SIZE 0
+// #define HK_PERIPHERAL_DEFAULT_POINTER_SCROLL_BUFFER_SIZE 0
+// #define KEYBALL_SCROLL_DIV_DEFAULT 4
+
 #define DYNAMIC_KEYMAP_LAYER_COUNT 8
 
 // for homerow mods
