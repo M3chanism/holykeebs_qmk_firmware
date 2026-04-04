@@ -30,8 +30,8 @@ void keyball_on_apply_motion_to_mouse_scroll(report_mouse_t *r, report_mouse_t *
 
     const int16_t scroll_speed_div = 1 << (keyball_get_scroll_div() - 1);
 
-    o->h = acc_x / scroll_speed_div;
-    acc_x -= o->h * scroll_speed_div;
+    o->h = -(acc_x / scroll_speed_div);
+    acc_x += o->h * scroll_speed_div;
 
     o->v = acc_y / scroll_speed_div;
     acc_y -= o->v * scroll_speed_div;
