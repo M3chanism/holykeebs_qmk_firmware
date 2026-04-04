@@ -54,14 +54,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [1] = LAYOUT_universal(
     KC_NO    , KC_NO    , KC_NO    , KC_NO    , KC_NO  ,                           KC_NO, KC_CAPS, KC_INS, KC_NO, KC_NO,
-    MOD_LALT  , MOD_LCTL , MOD_LGUI , MOD_LSFT , KC_NO ,                           KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_DEL,
+    KC_LALT  , KC_LCTL , KC_LGUI , KC_LSFT , KC_NO ,                           KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, KC_DEL,
     KC_NO,KC_NO,KC_NO,KC_NO,KC_NO,                                                 KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_NO,
     KC_NO,KC_NO,KC_NO         , _______  , KC_TRNS , _______  ,       KC_ENT, KC_BSPC,        KC_NO,KC_NO,KC_NO,     KC_NO
   ),
 
   [2] = LAYOUT_universal(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                             KC_NO, SCRL_DVI, SCRL_DVD, KC_NO, KC_NO,
-    MOD_LALT, MOD_LCTL, MOD_LGUI , MOD_LSFT , KC_NO ,                              KC_NO, KC_RSFT, KC_RGUI, KC_RCTL, KC_RALT,
+    KC_LALT, KC_LCTL, KC_LGUI , KC_LSFT , KC_NO ,                              KC_NO, KC_RSFT, KC_RGUI, KC_RCTL, KC_RALT,
     KC_NO, KC_NO, KC_TRNS, SCRL_MO, KC_NO,                                         KC_NO, SCRL_MO, KC_TRNS, KC_NO, KC_NO,
     KC_NO,KC_NO,KC_NO,           KC_MS_BTN2, KC_MS_BTN1, KC_MS_BTN3,       KC_MS_BTN3, KC_MS_BTN1,    KC_NO,KC_NO,KC_NO,     KC_NO
   ),
@@ -75,14 +75,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [4] = LAYOUT_universal(
     KC_LBRC , KC_7 , KC_8 , KC_9 , KC_RBRC ,                            _______ , _______ , _______ , _______ , _______ ,
-    KC_SCLN , KC_4 , KC_5 , KC_6 , KC_PEQL ,                            _______ , MOD_RSFT , MOD_RGUI , MOD_RCTL , MOD_RALT ,
+    KC_SCLN , KC_4 , KC_5 , KC_6 , KC_PEQL ,                            _______ , KC_RSFT , KC_RGUI , KC_RCTL , KC_RALT ,
     KC_GRV , KC_1 , KC_2 , KC_3 , KC_BSLS ,                            _______ , _______ , _______ , _______ , _______ ,
     _______ , _______ , _______ , KC_PDOT , KC_P0 , KC_PMNS ,      _______ ,   KC_TRNS , _______ , _______ , _______ , _______
   ),
 
   [5] = LAYOUT_universal(
     S(KC_LBRC) , S(KC_7) , S(KC_8) , S(KC_9) , S(KC_RBRC) ,                      _______ , _______ , _______ , _______ , _______ ,
-    S(KC_SCLN) , S(KC_4) , S(KC_5) , S(KC_6) , KC_PPLS ,                            _______ , MOD_RSFT , MOD_RGUI , MOD_RCTL , MOD_RALT ,
+    S(KC_SCLN) , S(KC_4) , S(KC_5) , S(KC_6) , KC_PPLS ,                            _______ , KC_RSFT , KC_RGUI , KC_RCTL , KC_RALT ,
     S(KC_GRV) , S(KC_1) , S(KC_2) , S(KC_3) , S(KC_BSLS) ,                            _______ , _______ , _______ , _______ , _______ ,
     _______ , _______ , _______ , S(KC_9) , S(KC_0) , S(KC_MINS) ,      KC_TRNS ,   _______ , _______ , _______ , _______ , _______
   ),
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [6] = LAYOUT_universal(
     _______ , _______ , _______ , _______ , _______ ,                            KC_PSCR , KC_F7 , KC_F8 , KC_F9 , KC_F12 ,
     _______ , _______ , _______ , _______ , _______ ,                            KC_SCRL , KC_F4 , KC_F5 , KC_F6 , KC_F11 ,
-    MOD_LALT , MOD_LCTL , MOD_LGUI , MOD_LSFT , _______ ,                        KC_PAUS , KC_F1 , KC_F2 , KC_F3 , KC_F10 ,
+    KC_LALT , KC_LCTL , KC_LGUI , KC_LSFT , _______ ,                        KC_PAUS , KC_F1 , KC_F2 , KC_F3 , KC_F10 ,
     _______ , _______ , _______ , _______ , _______ , KC_TRNS ,      _______ ,   _______ , _______ , _______ , _______ , _______
   ),
 
