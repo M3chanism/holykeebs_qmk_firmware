@@ -29,7 +29,7 @@ uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_
               return 0;
           // case MT(MOD_LGUI, KC_D):
           // case MT(MOD_RGUI, KC_K):
-          //     return 150;
+          //     return FLOW_TAP_TERM - 25; // subtract 25ms from global value
           // case MT(MOD_LCTL, KC_S):
           // case MT(MOD_RCTL, KC_L):
           //     return 150;
