@@ -20,6 +20,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+// exempt shift modifier from flow tap term
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t flow_tap_term) {
+    switch (keycode) {
+        case MT(MOD_LSFT, KC_F):
+        case MT(MOD_RSFT, KC_J):
+            return 0;  // disable Flow Tap for shift — always allow hold
+        default:
+            return flow_tap_term;  // use global value for everything else
+    }
+}
+
 void keyball_on_apply_motion_to_mouse_scroll(report_mouse_t *r, report_mouse_t *o, bool is_left) {
     static int16_t acc_x = 0;
     static int16_t acc_y = 0;
