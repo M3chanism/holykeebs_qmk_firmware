@@ -20,15 +20,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
-// exempt shift modifier from flow tap term
-uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t flow_tap_term) {
-    switch (keycode) {
-        case MT(MOD_LSFT, KC_F):
-        case MT(MOD_RSFT, KC_J):
-            return 0;  // disable Flow Tap for shift — always allow hold
-        default:
-            return flow_tap_term;  // use global value for everything else
+// Set tap hold delay for each modifier individually
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_keycode) {
+    if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
+      switch (keycode) {
+          case MT(MOD_LSFT, KC_F):
+          case MT(MOD_RSFT, KC_J):
+              return 0;
+          // case MT(MOD_LGUI, KC_D):
+          // case MT(MOD_RGUI, KC_K):
+          //     return 150;
+          // case MT(MOD_LCTL, KC_S):
+          // case MT(MOD_RCTL, KC_L):
+          //     return 150;
+          // case MT(MOD_LALT, KC_A):
+          // case MT(MOD_RALT, KC_QUOT):
+          //     return 150;
+          default:
+              return FLOW_TAP_TERM;  // use the global macro directly
+      }
     }
+    return 0;
 }
 
 void keyball_on_apply_motion_to_mouse_scroll(report_mouse_t *r, report_mouse_t *o, bool is_left) {
