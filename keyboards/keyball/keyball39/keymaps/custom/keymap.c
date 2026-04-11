@@ -20,21 +20,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+// Home row mod definitions
+#define HM_A  MT(MOD_LALT, KC_A)
+#define HM_S  MT(MOD_LCTL, KC_S)
+#define HM_D  MT(MOD_LGUI, KC_D)
+#define HM_F  MT(MOD_LSFT, KC_F)
+#define HM_J  MT(MOD_RSFT, KC_J)
+#define HM_K  MT(MOD_RGUI, KC_K)
+#define HM_L  MT(MOD_RCTL, KC_L)
+#define HM_QT MT(MOD_RALT, KC_QUOT)
+
 // Set tap hold delay for each modifier individually
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t* record, uint16_t prev_keycode) {
     if (is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode)) {
       switch (keycode) {
-          case MT(MOD_LSFT, KC_F):
-          case MT(MOD_RSFT, KC_J):
+          case HM_F:
+          case HM_J:
               return 0;
-          // case MT(MOD_LGUI, KC_D):
-          // case MT(MOD_RGUI, KC_K):
+          // case HM_D:
+          // case HM_K:
           //     return FLOW_TAP_TERM - 25; // subtract 25ms from global value
-          // case MT(MOD_LCTL, KC_S):
-          // case MT(MOD_RCTL, KC_L):
+          // case HM_S:
+          // case HM_L:
           //     return 150;
-          // case MT(MOD_LALT, KC_A):
-          // case MT(MOD_RALT, KC_QUOT):
+          // case HM_A:
+          // case HM_QT:
           //     return 150;
           default:
               return FLOW_TAP_TERM;  // use the global macro directly
@@ -69,9 +79,9 @@ void keyball_on_apply_motion_to_mouse_scroll(report_mouse_t *r, report_mouse_t *
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
-    KC_Q, KC_W, KC_E, KC_R, KC_T,         KC_Y, KC_U, KC_I, KC_O, KC_P,
-    MT(MOD_LALT,KC_A), MT(MOD_LCTL,KC_S), MT(MOD_LGUI,KC_D), MT(MOD_LSFT,KC_F), KC_G,    KC_H, MT(MOD_RSFT,KC_J), MT(MOD_RGUI,KC_K), MT(MOD_RCTL,KC_L), MT(MOD_RALT,KC_QUOT),
-    KC_Z, KC_X, LT(2,KC_C), KC_V, KC_B,            KC_N, KC_M, LT(2,KC_COMM), KC_DOT, KC_SLSH,
+    KC_Q, KC_W, KC_E, KC_R, KC_T,              KC_Y, KC_U, KC_I, KC_O, KC_P,
+    HM_A, HM_S, HM_D, HM_F, KC_G,              KC_H, HM_J, HM_K, HM_L, HM_QT,
+    KC_Z, KC_X, LT(2,KC_C), KC_V, KC_B,        KC_N, KC_M, LT(2,KC_COMM), KC_DOT, KC_SLSH,
     KC_NO,KC_NO,KC_NO , LT(3,KC_ESC),LT(1,KC_SPC),LT(6,KC_TAB),      LT(5,KC_ENT),LT(4,KC_BSPC),  KC_NO,KC_NO,KC_NO,     KC_NO
   ),
 
