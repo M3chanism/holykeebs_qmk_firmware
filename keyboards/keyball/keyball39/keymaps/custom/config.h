@@ -50,8 +50,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // for homerow mods
 // see: https://docs.qmk.fm/tap_hold
-#define TAPPING_TERM 150
-// #define QUICK_TAP_TERM 120  // defaults to TAPPING_TERM, prevents double-tap-to-repeat from blocking mod activation
-#define FLOW_TAP_TERM 150
-#define HOLD_ON_OTHER_KEY_PRESS
-// #define PERMISSIVE_HOLD
+#define CHORDAL_HOLD // only resolve as hold if next key is on opposite hand
+#define PERMISSIVE_HOLD // overriden by hold on other key press
+#define TAPPING_TERM 200 // register hold after X ms delay
+#define TAPPING_TERM_PER_KEY
+#define FLOW_TAP_TERM 100 // disables holds when key is pressed X ms after previous key
+#define QUICK_TAP_TERM 120  // defaults to TAPPING_TERM, delay for double tap to repeat
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY // only apply to layer tap thumb keys
